@@ -1496,7 +1496,6 @@ var DualHRangeBar = /** @class */ (function (_super) {
             this.relative.lower = newUpper - this.relative.minSpan;
         if (newUpper - this.relative.maxSpan > this.relative.lower)
             this.relative.lower = newUpper - this.relative.maxSpan;
-        console.log("DRAG END!!");
     };
     DualHRangeBar.prototype.draggingRange = function (event) {
         var _a, _b;
@@ -1711,8 +1710,9 @@ var DualRangeBar = /** @class */ (function () {
         //#endregion
         this.handleEvents();
     }
-    DualRangeBar.prototype.emitEvent = function () {
-        var event = new CustomEvent('update', {
+    DualRangeBar.prototype.emitEvent = function (type) {
+        if (type === void 0) { type = 'update'; }
+        var event = new CustomEvent(type, {
             detail: this
         });
         this.container.dispatchEvent(event);
@@ -1866,6 +1866,7 @@ var DualRangeBar = /** @class */ (function () {
             _this.underDragging = null;
             _this.update();
             _this.emitEvent();
+            _this.emitEvent('change');
         };
         window.addEventListener('mouseup', pointerUp);
         window.addEventListener('touchend', pointerUp);
