@@ -3,7 +3,10 @@
   "version": "1.0.3",
   "description": "A dual range slider/scrolling bar without dependency",
   "main": "dist/dual-range-bar.js",
-  "files": [ "/dist", "/types" ],
+  "files": [
+    "/dist",
+    "/types"
+  ],
   "types": "types/index.d.ts",
   "repository": "https://github.com/welai/dual-range-bar.git",
   "keywords": [
