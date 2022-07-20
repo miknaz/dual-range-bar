@@ -62,8 +62,6 @@ export default class DualHRangeBar extends DualRangeBar {
       this.relative.lower = newUpper - this.relative.minSpan
     if (newUpper - this.relative.maxSpan > this.relative.lower)
       this.relative.lower = newUpper - this.relative.maxSpan
-    
-    console.log("DRAG END!!");
   }
 
   protected draggingRange(event: MouseEvent | TouchEvent) {

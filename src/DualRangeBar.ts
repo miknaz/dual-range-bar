@@ -50,8 +50,8 @@ export default abstract class DualRangeBar implements EventTarget {
     rangeSlider:  document.createElement('div')
   }
 
-  emitEvent() {
-    const event = new CustomEvent('update', {
+  emitEvent(type = 'update') {
+    const event = new CustomEvent(type, {
       detail: this
     })
     this.container.dispatchEvent(event)
@@ -211,6 +211,7 @@ export default abstract class DualRangeBar implements EventTarget {
       this.underDragging = null
       this.update()
       this.emitEvent()
+      this.emitEvent('change')
     }
     window.addEventListener('mouseup', pointerUp)
     window.addEventListener('touchend', pointerUp)
